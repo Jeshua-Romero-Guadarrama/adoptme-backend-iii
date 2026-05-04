@@ -11,6 +11,8 @@
 - Bump `compression` 1.7.4 → 1.8.1, `cookie-parser` 1.4.6 → 1.4.7.
 - Bump `helmet` 7.1.0 → 8.1.0, `mongoose` 8.4.1 → 8.18.3, `morgan` 1.10.0 → 1.10.1, `express-rate-limit` 7.4.0 → 7.5.1.
 - `npm audit --omit=dev` ahora reporta **0 vulnerabilidades**.
+- `npm overrides` fuerza `serialize-javascript@7.0.5` para cerrar
+  CVEs transitivos en mocha (dev). `npm audit` global: **0 vulnerabilidades**.
 
 ## [1.0.0]
 

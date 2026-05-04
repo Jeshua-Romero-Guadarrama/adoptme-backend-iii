@@ -53,5 +53,8 @@
     "mocha": "10.8.2",
     "sinon": "18.0.0",
     "supertest": "7.1.4"
+  },
+  "overrides": {
+    "serialize-javascript": "7.0.5"
   }
 }
