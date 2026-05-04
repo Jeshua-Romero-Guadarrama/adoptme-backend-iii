@@ -11,7 +11,7 @@
 services:
   api:
     build: .
-    image: jeshuaromero/adoptme-backend-iii:latest
+    image: jeshuarg/adoptme-backend-iii:latest
     container_name: adoptme-api
     restart: unless-stopped
     ports:

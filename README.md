@@ -135,14 +135,11 @@ Ver `SECURITY.md` para detalles.
 
 | Campo        | Valor                                                              |
 |--------------|--------------------------------------------------------------------|
-| Repositorio  | `jeshuaromero/adoptme-backend-iii`                                 |
+| Repositorio  | `jeshuarg/adoptme-backend-iii`                                     |
 | Tags         | `1.0.0`, `latest`                                                  |
-| URL pública  | https://hub.docker.com/r/jeshuaromero/adoptme-backend-iii          |
-| Pull         | `docker pull jeshuaromero/adoptme-backend-iii:1.0.0`               |
-
-> **Nota:** la imagen se construye con `docker build .` y se sube con
-> `docker push jeshuaromero/adoptme-backend-iii:1.0.0`. La URL apunta al
-> repositorio personal del autor en DockerHub.
+| URL pública  | https://hub.docker.com/r/jeshuarg/adoptme-backend-iii              |
+| Pull         | `docker pull jeshuarg/adoptme-backend-iii:1.0.0`                   |
+| Tamaño       | ~65 MB comprimida / 299 MB descomprimida                           |
 
 ---
 
@@ -175,16 +172,16 @@ Resultado esperado: **33 tests passing**.
 ### 2) Construir la imagen Docker
 
 ```powershell
-docker build -t jeshuaromero/adoptme-backend-iii:1.0.0 `
-             -t jeshuaromero/adoptme-backend-iii:latest .
+docker build -t jeshuarg/adoptme-backend-iii:1.0.0 `
+             -t jeshuarg/adoptme-backend-iii:latest .
 ```
 
 ### 3) Ejecutar el contenedor
 
-Modo simple (sin Mongo):
+Modo simple (sin Mongo) — pulleando directo de DockerHub:
 
 ```powershell
-docker run --rm -p 8080:8080 jeshuaromero/adoptme-backend-iii:1.0.0
+docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.0
 ```
 
 Con Mongo y compose:
@@ -203,16 +200,16 @@ curl http://localhost:8080/api/docs/
 ### 4) Subir la imagen a DockerHub
 
 ```powershell
-docker login
-docker push jeshuaromero/adoptme-backend-iii:1.0.0
-docker push jeshuaromero/adoptme-backend-iii:latest
+docker login -u jeshuarg
+docker push jeshuarg/adoptme-backend-iii:1.0.0
+docker push jeshuarg/adoptme-backend-iii:latest
 ```
 
 ### 5) Escaneo de seguridad básico
 
 ```powershell
-docker scout quickview jeshuaromero/adoptme-backend-iii:1.0.0
-docker scout cves      jeshuaromero/adoptme-backend-iii:1.0.0
+docker scout quickview jeshuarg/adoptme-backend-iii:1.0.0
+docker scout cves      jeshuarg/adoptme-backend-iii:1.0.0
 ```
 
 ---
