@@ -1,0 +1,42 @@
+# =============================================================================
+# docker-compose.yml
+# -----------------------------------------------------------------------------
+# Autor: Jeshua Romero Guadarrama
+#
+# Se levantan localmente la API AdoptMe junto a una instancia de MongoDB
+# para validar el flujo completo. La imagen de la API se construye desde el
+# Dockerfile multi-stage de este repositorio.
+# =============================================================================
+
+services:
+  api:
+    build: .
+    image: jeshuaromero/adoptme-backend-iii:latest
+    container_name: adoptme-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      MONGO_URL: mongodb://mongo:27017/adoptme
+      CORS_ORIGINS: "*"
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  mongo:
+    image: mongo:7
+    container_name: adoptme-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongo-data: {}

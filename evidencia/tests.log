@@ -1,0 +1,59 @@
+$ docker run --rm -v "$(pwd):/app" -w /app -e NODE_ENV=test node:20-alpine npm test
+
+> adoptame-backend-iii@1.0.0 test
+> cross-env NODE_ENV=test mocha --recursive --timeout 10000 --exit "test/**/*.test.js"
+
+
+
+  Router de adopciones - /api/adopciones
+    GET /api/adopciones
+      ✔ responde 200 y devuelve el listado completo de adopciones
+      ✔ responde 200 con arreglo vacío cuando no hay adopciones
+      ✔ responde 500 cuando el servicio lanza un error inesperado
+    GET /api/adopciones/:idAdopcion
+      ✔ responde 200 cuando la adopción existe
+      ✔ responde 404 cuando la adopción no existe
+      ✔ responde 400 cuando el id no tiene forma de ObjectId
+      ✔ responde 500 cuando el servicio falla
+    POST /api/adopciones/:idUsuario/:idMascota
+      ✔ responde 200 y persiste la adopción cuando todo es válido
+      ✔ responde 404 cuando el usuario no existe
+      ✔ responde 404 cuando la mascota no existe
+      ✔ responde 400 cuando la mascota ya está adoptada
+      ✔ responde 400 cuando idUsuario no es ObjectId válido
+      ✔ responde 400 cuando idMascota no es ObjectId válido
+      ✔ inicializa pets vacío si el usuario no trae arreglo previo
+      ✔ responde 500 si servicioUsuarios.getUserById falla
+      ✔ responde 500 si servicioAdopciones.create falla
+    Comportamiento ante métodos y rutas no soportados
+      ✔ responde 404 para métodos no definidos en el recurso
+      ✔ responde 404 para subrutas no registradas
+
+  GET /health
+    ✔ responde 200 con un payload de estado
+
+  Defensas de seguridad transversales
+    ✔ expone cabeceras de seguridad provistas por Helmet
+    ✔ rechaza payloads JSON que excedan el límite con 413
+    ✔ rechaza JSON malformado con 400 sin filtrar el stack (143ms)
+    ✔ sanitiza operadores Mongo ($ y .) en query strings
+    ✔ responde 404 con envelope estándar para rutas inexistentes
+
+  controladorAdopciones (unitario)
+    obtenerTodasLasAdopciones
+      ✔ llama al servicio y responde 200 con el listado
+      ✔ responde 500 si el servicio rechaza
+    obtenerAdopcion
+      ✔ responde 200 con la adopción encontrada
+      ✔ responde 404 cuando no existe
+    crearAdopcion
+      ✔ orquesta updates y create cuando todo es válido
+      ✔ responde 400 cuando la mascota ya está adoptada
+
+  validarObjectId (middleware)
+    ✔ llama a next cuando todos los ids son válidos
+    ✔ responde 400 cuando un parámetro es inválido
+    ✔ responde 400 cuando un parámetro está ausente
+
+
+  33 passing (306ms)

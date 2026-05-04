@@ -1,0 +1,34 @@
+### -----------------------------------------------------------------------
+### requests.http - Ejemplos de uso de la API AdoptMe
+### Autor: Jeshua Romero Guadarrama
+### Compatible con la extensión "REST Client" de VS Code.
+### -----------------------------------------------------------------------
+
+@host = http://localhost:8080
+@idUsuario = aaaaaaaaaaaaaaaaaaaaaaaa
+@idMascota = bbbbbbbbbbbbbbbbbbbbbbbb
+@idAdopcion = cccccccccccccccccccccccc
+
+### Healthcheck
+GET {{host}}/health
+
+### Listar todas las adopciones
+GET {{host}}/api/adopciones
+
+### Obtener una adopción por id
+GET {{host}}/api/adopciones/{{idAdopcion}}
+
+### Crear una adopción enlazando un usuario y una mascota
+POST {{host}}/api/adopciones/{{idUsuario}}/{{idMascota}}
+
+### Documentación interactiva (Swagger UI)
+GET {{host}}/api/docs/
+
+### Listar usuarios
+GET {{host}}/api/usuarios
+
+### Listar mascotas
+GET {{host}}/api/mascotas
+
+### Sesión actual
+GET {{host}}/api/sesiones/current

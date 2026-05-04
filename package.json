@@ -1,0 +1,57 @@
+{
+  "name": "adoptame-backend-iii",
+  "version": "1.0.0",
+  "description": "API AdoptMe - Entregable final Backend III: tests funcionales, imagen Docker endurecida y documentacion OpenAPI.",
+  "main": "src/app.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18 <23"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive --timeout 10000 --exit \"test/**/*.test.js\"",
+    "test:reporter": "cross-env NODE_ENV=test mocha --recursive --timeout 10000 --exit --reporter spec \"test/**/*.test.js\"",
+    "test:coverage": "cross-env NODE_ENV=test c8 --reporter=text --reporter=lcov mocha --recursive --timeout 10000 --exit \"test/**/*.test.js\"",
+    "lint": "eslint src test"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "adopcion",
+    "backend",
+    "coderhouse",
+    "docker",
+    "mocha",
+    "chai",
+    "supertest",
+    "sinon"
+  ],
+  "author": "Jeshua Romero Guadarrama",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "compression": "1.7.4",
+    "cookie-parser": "1.4.6",
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "express-mongo-sanitize": "2.2.0",
+    "express-rate-limit": "7.4.0",
+    "helmet": "7.1.0",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.4.1",
+    "morgan": "1.10.0",
+    "multer": "1.4.5-lts.1",
+    "swagger-jsdoc": "6.2.8",
+    "swagger-ui-express": "5.0.1"
+  },
+  "devDependencies": {
+    "c8": "10.1.2",
+    "chai": "4.4.1",
+    "cross-env": "7.0.3",
+    "eslint": "8.57.0",
+    "mocha": "10.4.0",
+    "sinon": "18.0.0",
+    "supertest": "7.0.0"
+  }
+}
