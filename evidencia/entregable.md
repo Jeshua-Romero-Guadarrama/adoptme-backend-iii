@@ -452,7 +452,7 @@ CMD ["node", "src/app.js"]
 ### 4.3 Log de construcción
 
 ```
-$ docker build -t jeshuarg/adoptme-backend-iii:1.0.0 \
+$ docker build -t jeshuarg/adoptme-backend-iii:1.0.1 \
                -t jeshuarg/adoptme-backend-iii:latest .
 
 #1 [internal] load build definition from Dockerfile        DONE 0.1s
@@ -474,7 +474,7 @@ $ docker build -t jeshuarg/adoptme-backend-iii:1.0.0 \
 #15 [runner 6/7] COPY --from=builder /app/src              DONE 0.1s
 #16 [runner 7/7] RUN chown -R node:node /app               DONE 18.9s
 #17 exporting to image                                     DONE 4.3s
-   naming to docker.io/jeshuarg/adoptme-backend-iii:1.0.0
+   naming to docker.io/jeshuarg/adoptme-backend-iii:1.0.1
    naming to docker.io/jeshuarg/adoptme-backend-iii:latest
 ```
 
@@ -485,20 +485,20 @@ $ docker build -t jeshuarg/adoptme-backend-iii:1.0.0 \
 | Campo                | Valor                                                              |
 |----------------------|--------------------------------------------------------------------|
 | Repositorio DockerHub | `jeshuarg/adoptme-backend-iii`                                     |
-| Tags                 | `1.0.0`, `latest`                                                  |
+| Tags                 | `1.0.1`, `1.0.0`, `latest`                                         |
 | Tamaño               | ~65 MB comprimida / 299 MB descomprimida                           |
 | URL pública          | <https://hub.docker.com/r/jeshuarg/adoptme-backend-iii>            |
-| Pull                 | `docker pull jeshuarg/adoptme-backend-iii:1.0.0`                   |
+| Pull                 | `docker pull jeshuarg/adoptme-backend-iii:1.0.1`                   |
 | Repo GitHub          | <https://github.com/Jeshua-Romero-Guadarrama/adoptme-backend-iii>  |
 
 ### 5.1 Evidencia de build
 
 ```
 $ docker images jeshuarg/adoptme-backend-iii --format "{{.Repository}}:{{.Tag}}\t{{.Size}}"
-jeshuarg/adoptme-backend-iii:1.0.0   299MB
+jeshuarg/adoptme-backend-iii:1.0.1   299MB
 jeshuarg/adoptme-backend-iii:latest  299MB
 
-$ docker push jeshuarg/adoptme-backend-iii:1.0.0
+$ docker push jeshuarg/adoptme-backend-iii:1.0.1
 1.0.0: digest: sha256:844cf7845df191386a24f74b09c3423113e6bc698a3519fa02de0eb1057f4b50 size: 856
 
 $ docker push jeshuarg/adoptme-backend-iii:latest
@@ -508,7 +508,7 @@ latest: digest: sha256:844cf7845df191386a24f74b09c3423113e6bc698a3519fa02de0eb10
 ### 5.2 Evidencia de ejecución del contenedor
 
 ```
-$ docker run --rm -d --name adoptme-prueba -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.0
+$ docker run --rm -d --name adoptme-prueba -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.1
 845c698240468affcab9be58156f29bd66f6e16c117d354e17e04236c83ffdae
 
 $ curl http://localhost:8080/health
@@ -543,14 +543,14 @@ GET /api/docs/ 200 3106 - 2.904 ms
 ### 6.1 Construir la imagen
 
 ```powershell
-docker build -t jeshuarg/adoptme-backend-iii:1.0.0 `
+docker build -t jeshuarg/adoptme-backend-iii:1.0.1 `
              -t jeshuarg/adoptme-backend-iii:latest .
 ```
 
 ### 6.2 Ejecutar el contenedor
 
 ```powershell
-docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.0
+docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.1
 ```
 
 Con base de datos:
@@ -577,15 +577,15 @@ Resultado esperado:
 
 ```powershell
 docker login -u jeshuarg
-docker push jeshuarg/adoptme-backend-iii:1.0.0
+docker push jeshuarg/adoptme-backend-iii:1.0.1
 docker push jeshuarg/adoptme-backend-iii:latest
 ```
 
 ### 6.5 Escaneo de vulnerabilidades
 
 ```powershell
-docker scout quickview jeshuarg/adoptme-backend-iii:1.0.0
-docker scout cves      jeshuarg/adoptme-backend-iii:1.0.0
+docker scout quickview jeshuarg/adoptme-backend-iii:1.0.1
+docker scout cves      jeshuarg/adoptme-backend-iii:1.0.1
 ```
 
 ---
@@ -623,7 +623,7 @@ mascotas y registros de adopción. Tres endpoints en /api/adopciones.
 - Repositorio: jeshuarg/adoptme-backend-iii
 - Tags: 1.0.0, latest
 - URL: https://hub.docker.com/r/jeshuarg/adoptme-backend-iii
-- Pull: docker pull jeshuarg/adoptme-backend-iii:1.0.0
+- Pull: docker pull jeshuarg/adoptme-backend-iii:1.0.1
 - Repo GitHub: https://github.com/Jeshua-Romero-Guadarrama/adoptme-backend-iii
 
 ## Reproducción
@@ -633,14 +633,14 @@ docker run --rm -v "${PWD}:/app" -w /app -e NODE_ENV=test \
   node:20-alpine sh -c "npm install && npm test"
 
 # Build
-docker build -t jeshuarg/adoptme-backend-iii:1.0.0 .
+docker build -t jeshuarg/adoptme-backend-iii:1.0.1 .
 
 # Run
-docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.0
+docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.1
 
 curl http://localhost:8080/health
 curl http://localhost:8080/api/docs/
 
 # Pull (publicada en DockerHub)
-docker pull jeshuarg/adoptme-backend-iii:1.0.0
+docker pull jeshuarg/adoptme-backend-iii:1.0.1
 ```

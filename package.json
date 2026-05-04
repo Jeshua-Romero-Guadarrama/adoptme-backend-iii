@@ -1,6 +1,6 @@
 {
   "name": "adoptame-backend-iii",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API AdoptMe - Entregable final Backend III: tests funcionales, imagen Docker endurecida y documentacion OpenAPI.",
   "main": "src/app.js",
   "type": "module",
@@ -30,18 +30,18 @@
   "author": "Jeshua Romero Guadarrama",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "5.1.1",
-    "compression": "1.7.4",
-    "cookie-parser": "1.4.6",
+    "bcrypt": "6.0.0",
+    "compression": "1.8.1",
+    "cookie-parser": "1.4.7",
     "cors": "2.8.5",
-    "express": "4.19.2",
+    "express": "4.22.1",
     "express-mongo-sanitize": "2.2.0",
-    "express-rate-limit": "7.4.0",
-    "helmet": "7.1.0",
+    "express-rate-limit": "7.5.1",
+    "helmet": "8.1.0",
     "jsonwebtoken": "9.0.2",
-    "mongoose": "8.4.1",
-    "morgan": "1.10.0",
-    "multer": "1.4.5-lts.1",
+    "mongoose": "8.18.3",
+    "morgan": "1.10.1",
+    "multer": "2.1.1",
     "swagger-jsdoc": "6.2.8",
     "swagger-ui-express": "5.0.1"
   },
@@ -50,8 +50,8 @@
     "chai": "4.4.1",
     "cross-env": "7.0.3",
     "eslint": "8.57.0",
-    "mocha": "10.4.0",
+    "mocha": "10.8.2",
     "sinon": "18.0.0",
-    "supertest": "7.0.0"
+    "supertest": "7.1.4"
   }
 }

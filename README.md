@@ -136,9 +136,9 @@ Ver `SECURITY.md` para detalles.
 | Campo        | Valor                                                              |
 |--------------|--------------------------------------------------------------------|
 | Repositorio  | `jeshuarg/adoptme-backend-iii`                                     |
-| Tags         | `1.0.0`, `latest`                                                  |
+| Tags         | `1.0.1`, `1.0.0`, `latest`                                         |
 | URL pública  | https://hub.docker.com/r/jeshuarg/adoptme-backend-iii              |
-| Pull         | `docker pull jeshuarg/adoptme-backend-iii:1.0.0`                   |
+| Pull         | `docker pull jeshuarg/adoptme-backend-iii:1.0.1`                   |
 | Tamaño       | ~65 MB comprimida / 299 MB descomprimida                           |
 
 ---
@@ -172,7 +172,7 @@ Resultado esperado: **33 tests passing**.
 ### 2) Construir la imagen Docker
 
 ```powershell
-docker build -t jeshuarg/adoptme-backend-iii:1.0.0 `
+docker build -t jeshuarg/adoptme-backend-iii:1.0.1 `
              -t jeshuarg/adoptme-backend-iii:latest .
 ```
 
@@ -181,7 +181,7 @@ docker build -t jeshuarg/adoptme-backend-iii:1.0.0 `
 Modo simple (sin Mongo) — pulleando directo de DockerHub:
 
 ```powershell
-docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.0
+docker run --rm -p 8080:8080 jeshuarg/adoptme-backend-iii:1.0.1
 ```
 
 Con Mongo y compose:
@@ -201,15 +201,15 @@ curl http://localhost:8080/api/docs/
 
 ```powershell
 docker login -u jeshuarg
-docker push jeshuarg/adoptme-backend-iii:1.0.0
+docker push jeshuarg/adoptme-backend-iii:1.0.1
 docker push jeshuarg/adoptme-backend-iii:latest
 ```
 
 ### 5) Escaneo de seguridad básico
 
 ```powershell
-docker scout quickview jeshuarg/adoptme-backend-iii:1.0.0
-docker scout cves      jeshuarg/adoptme-backend-iii:1.0.0
+docker scout quickview jeshuarg/adoptme-backend-iii:1.0.1
+docker scout cves      jeshuarg/adoptme-backend-iii:1.0.1
 ```
 
 ---
